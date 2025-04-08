@@ -1,0 +1,104 @@
+/* Typing Animation Container */
+.typing-container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.typing-text {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  animation: typing 15s linear infinite;
+}
+
+.typing-text:nth-child(1) { animation-delay: 0s; }
+.typing-text:nth-child(2) { animation-delay: 3s; }
+.typing-text:nth-child(3) { animation-delay: 6s; }
+.typing-text:nth-child(4) { animation-delay: 9s; }
+.typing-text:nth-child(5) { animation-delay: 12s; }
+
+@keyframes typing {
+  0%, 2% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  4%, 17% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  19%, 20% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Review Typing Animation */
+.typing-review {
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+}
+
+.review-text {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  animation: review-typing 18s linear infinite;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.review-text:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.1);
+}
+
+.typing-review .review-text:nth-child(1) { animation-delay: 0s; }
+.typing-review .review-text:nth-child(2) { animation-delay: 6s; }
+.typing-review .review-text:nth-child(3) { animation-delay: 12s; }
+
+@keyframes review-typing {
+  0%, 2% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  5%, 28% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  33%, 35% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Bubbly Button Animation */
+.bubbly-button {
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+.bubbly-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
+}
+
+.bubbly-button:active {
+  transform: scale(0.95);
+} 
