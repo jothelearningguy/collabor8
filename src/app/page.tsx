@@ -1,4 +1,4 @@
-import Link from 'next/link'
+'use client'
 
 export default function Home() {
   return (
@@ -16,12 +16,12 @@ export default function Home() {
                 <span className="typing-text">Help hundreds while you sleep... 💪</span>
                 <span className="typing-text">Build your tutoring brand... 🌟</span>
                 <span className="typing-text">90% revenue share on every view... 💰</span>
-                <span className="typing-text">Join UNC's top tutors... 🎓</span>
+                <span className="typing-text">Join UNC&apos;s top tutors... 🎓</span>
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8 transform hover:scale-105 transition-all duration-300 shadow-lg">
               <p className="text-xl">
-                "I made $2,400 last month from videos I recorded once, helping hundreds of students while I sleep" 
+                &quot;I made $2,400 last month from videos I recorded once, helping hundreds of students while I sleep&quot; 
                 <br/>
                 <span className="text-lg opacity-75">- John D., Chemistry Tutor at UNC</span>
               </p>
@@ -138,7 +138,7 @@ export default function Home() {
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-8">Need Help Understanding Something?</h2>
             <p className="text-xl text-gray-600 mb-8">
-              Tell us what you're struggling with. We'll match you with the perfect explanation.
+              Tell us what you&apos;re struggling with. We&apos;ll match you with the perfect explanation.
             </p>
             <form className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -235,17 +235,17 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <div className="typing-review">
-                <p className="review-text">"Made $1,200 in my first month just from my Organic Chemistry videos!"</p>
-                <p className="review-text">"Students love my calculus explanations - got 5,000+ views already!"</p>
-                <p className="review-text">"Finally, I can help more students without scheduling conflicts!"</p>
+                <p className="review-text">&quot;Made $1,200 in my first month just from my Organic Chemistry videos!&quot;</p>
+                <p className="review-text">&quot;Students love my calculus explanations - got 5,000+ views already!&quot;</p>
+                <p className="review-text">&quot;Finally, I can help more students without scheduling conflicts!&quot;</p>
               </div>
               <p className="font-semibold mt-4">Sarah K. - Chemistry</p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <div className="typing-review">
-                <p className="review-text">"The visualization tools make complex topics so much easier to explain."</p>
-                <p className="review-text">"My passive income covers my rent now - amazing!"</p>
-                <p className="review-text">"Best decision I made - helping more students while making more money."</p>
+                <p className="review-text">&quot;The visualization tools make complex topics so much easier to explain.&quot;</p>
+                <p className="review-text">&quot;My passive income covers my rent now - amazing!&quot;</p>
+                <p className="review-text">&quot;Best decision I made - helping more students while making more money.&quot;</p>
               </div>
               <p className="font-semibold mt-4">Mike R. - Physics</p>
             </div>
@@ -257,7 +257,7 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-t-[3rem] shadow-xl">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Scale Your Impact?</h2>
-          <p className="text-xl mb-8">We're recruiting UNC's top tutors this week only.</p>
+          <p className="text-xl mb-8">We&apos;re recruiting UNC&apos;s top tutors this week only.</p>
           <a 
             href="/tutor-signup"
             className="bubbly-button inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 text-lg shadow-xl"

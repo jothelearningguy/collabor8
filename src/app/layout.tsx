@@ -1,22 +1,38 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+'use client'
+
+import React from 'react'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 import Link from 'next/link';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Collabor8 - Turn Your Tutoring Into Passive Income",
-  description: "Join UNC's top tutors and earn 90% revenue share on your educational content. Create once, earn repeatedly.",
-};
+  title: 'Collabor8 - The College Tutor Marketplace',
+  description: 'Connect with verified college tutors through engaging video content',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="Connect with verified college tutors through engaging video content"
+        />
+        <meta property="og:title" content="Collabor8 - The College Tutor Marketplace" />
+        <meta property="og:description" content="Connect with verified college tutors through engaging video content" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://collabor8.vercel.app" />
+      </head>
       <body className={inter.className}>
         <nav className="bg-white shadow-sm">
           <div className="container mx-auto px-4">
@@ -42,7 +58,7 @@ export default function RootLayout({
           <div className="container mx-auto px-4 py-12">
             <div className="text-center">
               <p className="text-gray-600 mb-4">
-                Join UNC's fastest-growing tutoring platform
+                Join UNC&apos;s fastest-growing tutoring platform
               </p>
               <Link
                 href="/tutor-signup"
@@ -58,5 +74,5 @@ export default function RootLayout({
         </footer>
       </body>
     </html>
-  );
+  )
 }
