@@ -58,7 +58,7 @@ export default function RootLayout({
           <div className="container mx-auto px-4 py-12">
             <div className="text-center">
               <p className="text-gray-600 mb-4">
-                Join UNC&apos;s fastest-growing tutoring platform
+                Join UNC's fastest-growing tutoring platform
               </p>
               <Link
                 href="/tutor-signup"

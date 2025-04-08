@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react';
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -16,12 +18,12 @@ export default function Home() {
                 <span className="typing-text">Help hundreds while you sleep... 💪</span>
                 <span className="typing-text">Build your tutoring brand... 🌟</span>
                 <span className="typing-text">90% revenue share on every view... 💰</span>
-                <span className="typing-text">Join UNC&apos;s top tutors... 🎓</span>
+                <span className="typing-text">Join UNC's top tutors... 🎓</span>
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8 transform hover:scale-105 transition-all duration-300 shadow-lg">
               <p className="text-xl">
-                &quot;I made $2,400 last month from videos I recorded once, helping hundreds of students while I sleep&quot; 
+                "I made $2,400 last month from videos I recorded once, helping hundreds of students while I sleep" 
                 <br/>
                 <span className="text-lg opacity-75">- John D., Chemistry Tutor at UNC</span>
               </p>
