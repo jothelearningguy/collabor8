@@ -41,10 +41,10 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-          Name
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+          Full Name
         </label>
         <input
           type="text"
@@ -53,13 +53,14 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+          placeholder="Your name"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-          Email
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+          University Email
         </label>
         <input
           type="email"
@@ -68,13 +69,14 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+          placeholder="your.email@university.edu"
         />
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
-          Subject
+        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+          Subjects You Can Tutor
         </label>
         <input
           type="text"
@@ -83,13 +85,14 @@ export default function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+          placeholder="e.g., Chemistry, Calculus, Physics"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-          Message
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+          Tell Us About Your Experience
         </label>
         <textarea
           id="message"
@@ -98,24 +101,41 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={4}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all resize-none"
+          placeholder="Share your tutoring experience and why you'd like to join Collabor8..."
         />
       </div>
 
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+        className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 transition-all duration-200 text-lg shadow-lg"
       >
         {status === 'loading' ? 'Sending...' : 'Send Message'}
       </button>
 
       {status === 'success' && (
-        <p className="text-green-600 text-center">Message sent successfully!</p>
+        <div className="bg-green-50 text-green-800 rounded-lg p-4 mt-4">
+          <p className="text-center font-medium">Application sent successfully! We'll be in touch soon.</p>
+        </div>
       )}
       {status === 'error' && (
-        <p className="text-red-600 text-center">Failed to send message. Please try again.</p>
+        <div className="bg-red-50 text-red-800 rounded-lg p-4 mt-4">
+          <p className="text-center font-medium">Failed to send application. Please try again.</p>
+        </div>
       )}
+
+      <p className="mt-6 text-center text-sm text-gray-500">
+        By submitting this form, you agree to our{" "}
+        <a href="/terms" className="text-blue-600 hover:underline">
+          Terms of Service
+        </a>{" "}
+        and{" "}
+        <a href="/privacy" className="text-blue-600 hover:underline">
+          Privacy Policy
+        </a>
+        .
+      </p>
     </form>
   );
 } 
