@@ -38,10 +38,37 @@ export default function TutorSignup() {
     }
   };
 
+  const scrollToForm = () => {
+    const formElement = document.getElementById('application-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto relative">
+          {/* Left Scroll Button */}
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
+            <button
+              onClick={scrollToForm}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg transform -rotate-90 hover:opacity-90 transition-all duration-300 shadow-lg"
+            >
+              Scroll to Apply
+            </button>
+          </div>
+
+          {/* Right Scroll Button */}
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
+            <button
+              onClick={scrollToForm}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg transform rotate-90 hover:opacity-90 transition-all duration-300 shadow-lg"
+            >
+              Scroll to Apply
+            </button>
+          </div>
+
           <h1 className="text-4xl font-bold mb-6 text-center">Become a tutr</h1>
           <p className="text-xl text-gray-300 mb-8 text-center">
             Help students succeed while earning on your own schedule. Join America's fastest-growing tutoring platform.
@@ -126,7 +153,7 @@ export default function TutorSignup() {
               <p className="text-gray-300">Thank you for applying to be a tutor. We'll review your application and get back to you soon.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+            <form id="application-form" onSubmit={handleSubmit} className="mt-8 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">First Name</label>
