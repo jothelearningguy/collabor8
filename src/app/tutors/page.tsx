@@ -1,6 +1,51 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
+
+const tutors = [
+  {
+    name: "Alexander Chen",
+    university: "Stanford University",
+    subjects: "Computer Science, Data Structures",
+    rating: 4.9,
+    studentsHelped: 523
+  },
+  {
+    name: "Rachel Martinez",
+    university: "MIT",
+    subjects: "Calculus, Linear Algebra",
+    rating: 4.9,
+    studentsHelped: 487
+  },
+  {
+    name: "Marcus Thompson",
+    university: "UC Berkeley",
+    subjects: "Physics, Quantum Mechanics",
+    rating: 4.9,
+    studentsHelped: 512
+  },
+  {
+    name: "Sophia Patel",
+    university: "Harvard University",
+    subjects: "Chemistry, Organic Chemistry",
+    rating: 4.9,
+    studentsHelped: 498
+  },
+  {
+    name: "Jordan Williams",
+    university: "UNC Chapel Hill",
+    subjects: "Biology, Genetics",
+    rating: 4.9,
+    studentsHelped: 534
+  },
+  {
+    name: "Emma Rodriguez",
+    university: "Georgia Tech",
+    subjects: "Economics, Statistics",
+    rating: 4.9,
+    studentsHelped: 476
+  }
+];
 
 export default function TutorsPage() {
   const [showRequestForm, setShowRequestForm] = useState(false);
@@ -79,20 +124,20 @@ export default function TutorsPage() {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[1, 2, 3, 4, 5, 6].map((tutor) => (
-                  <div key={tutor} className="bg-gray-800 rounded-lg overflow-hidden">
+                {tutors.map((tutor, index) => (
+                  <div key={index} className="bg-gray-800 rounded-lg overflow-hidden mb-4">
                     <div className="p-6">
                       <div className="flex items-center mb-4">
                         <div className="w-12 h-12 bg-gray-700 rounded-full mr-4"></div>
                         <div>
-                          <h3 className="font-bold">Tutor Name</h3>
-                          <p className="text-gray-400">University Name</p>
+                          <h3 className="font-bold">{tutor.name}</h3>
+                          <p className="text-gray-400">{tutor.university}</p>
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <p className="text-gray-300">Subjects: Mathematics, Physics</p>
-                        <p className="text-gray-300">Rating: ⭐⭐⭐⭐⭐ (4.9)</p>
-                        <p className="text-gray-300">Students Helped: 500+</p>
+                        <p className="text-gray-300">Subjects: {tutor.subjects}</p>
+                        <p className="text-gray-300">Rating: ⭐⭐⭐⭐⭐ ({tutor.rating})</p>
+                        <p className="text-gray-300">Students Helped: {tutor.studentsHelped}+</p>
                       </div>
                       <button 
                         onClick={() => setShowRequestForm(true)}
