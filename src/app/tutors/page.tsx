@@ -48,22 +48,25 @@ const tutors = [
 ];
 
 const GradientArrow = () => (
-  <div className="flex justify-center my-8">
-    <div className="w-24 h-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-200 cursor-pointer animate-bounce">
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        className="h-12 w-12 text-white" 
-        fill="none" 
-        viewBox="0 0 24 24" 
-        stroke="currentColor"
-        strokeWidth={3}
-      >
-        <path 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          d="M19 14l-7 7m0 0l-7-7m7 7V3" 
-        />
-      </svg>
+  <div className="flex justify-center py-6">
+    <div className="relative w-32 h-32">
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl transform rotate-45 animate-pulse"></div>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          className="h-16 w-16 text-white animate-bounce" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+          strokeWidth={4}
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+          />
+        </svg>
+      </div>
     </div>
   </div>
 );
@@ -190,29 +193,30 @@ export default function TutorsPage() {
                   <p className="text-gray-300">We'll be in touch with you soon.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">First Name</label>
-                      <input 
-                        name="firstName"
-                        type="text" 
-                        className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white"
-                        required 
-                      />
+                <form onSubmit={handleSubmit} className="space-y-12">
+                  <div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium mb-2">First Name</label>
+                        <input 
+                          name="firstName"
+                          type="text" 
+                          className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                          required 
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Last Name</label>
+                        <input 
+                          name="lastName"
+                          type="text" 
+                          className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                          required 
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Last Name</label>
-                      <input 
-                        name="lastName"
-                        type="text" 
-                        className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white"
-                        required 
-                      />
-                    </div>
+                    <GradientArrow />
                   </div>
-
-                  <GradientArrow />
 
                   <div>
                     <label className="block text-sm font-medium mb-2">University Email</label>
@@ -224,9 +228,8 @@ export default function TutorsPage() {
                       required 
                     />
                     <p className="mt-1 text-sm text-gray-400">Please use your university email address</p>
+                    <GradientArrow />
                   </div>
-
-                  <GradientArrow />
 
                   <div>
                     <label className="block text-sm font-medium mb-2">Subject</label>
@@ -244,9 +247,8 @@ export default function TutorsPage() {
                       <option value="economics">Economics</option>
                       <option value="statistics">Statistics</option>
                     </select>
+                    <GradientArrow />
                   </div>
-
-                  <GradientArrow />
 
                   <div>
                     <label className="block text-sm font-medium mb-2">Specific Topic/Concept</label>
@@ -257,9 +259,8 @@ export default function TutorsPage() {
                       placeholder="e.g., Derivatives, Thermodynamics, etc."
                       required 
                     />
+                    <GradientArrow />
                   </div>
-
-                  <GradientArrow />
 
                   <div>
                     <label className="block text-sm font-medium mb-2">Additional Details</label>
@@ -268,9 +269,8 @@ export default function TutorsPage() {
                       className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white h-32"
                       placeholder="Describe what you need help with and any specific requirements..."
                     />
+                    <GradientArrow />
                   </div>
-
-                  <GradientArrow />
 
                   <button 
                     type="submit"
