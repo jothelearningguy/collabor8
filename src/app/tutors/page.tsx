@@ -49,18 +49,18 @@ const tutors = [
 
 const GradientArrow = () => (
   <div className="flex justify-center my-8">
-    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-200">
+    <div className="w-24 h-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-200 cursor-pointer animate-bounce">
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
-        className="h-8 w-8 text-white" 
+        className="h-12 w-12 text-white" 
         fill="none" 
         viewBox="0 0 24 24" 
         stroke="currentColor"
+        strokeWidth={3}
       >
         <path 
           strokeLinecap="round" 
           strokeLinejoin="round" 
-          strokeWidth={2} 
           d="M19 14l-7 7m0 0l-7-7m7 7V3" 
         />
       </svg>
