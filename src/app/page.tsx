@@ -2,66 +2,47 @@
 
 import React from 'react';
 import Link from 'next/link';
+import VideoFrame from '@/components/VideoFrame';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <section className="py-20 text-center">
-        <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
-          tutr by HEALLY
+    <main className="min-h-screen bg-gray-900 text-white">
+      <div className="container mx-auto px-4 py-20">
+        <h1 className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          Welcome to tutr
         </h1>
-        <p className="text-xl text-gray-300 mb-8">
-          The future of tutoring is here. Join America's top tutors.
+        <p className="text-xl text-center text-gray-300 mb-16">
+          Experience the future of learning with our AI-powered tutoring platform
         </p>
-        <div className="flex justify-center space-x-4">
-          <Link
-            href="/tutor-signup"
-            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-lg hover:opacity-90 transition"
-          >
-            Become a Tutor
-          </Link>
-          <Link
-            href="/tutors"
-            className="border border-gray-700 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition"
-          >
-            Find a Tutor
-          </Link>
-        </div>
-      </section>
 
-      <section className="py-20 bg-gray-900">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center">Why Choose tutr?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">Verified Tutors</h3>
-              <p className="text-gray-300">All tutors are verified through transcript checks to ensure quality.</p>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">Video Content</h3>
-              <p className="text-gray-300">Access engaging educational content created by top tutors.</p>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-4">Revenue Sharing</h3>
-              <p className="text-gray-300">Tutors earn 90% of ad revenue from their content.</p>
-            </div>
+        {/* Video Showcase Section */}
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+            See How It Works
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <VideoFrame
+              title="Create Engaging Content"
+              description="Watch how our tutors create high-quality educational content using our state-of-the-art video platform."
+              videoPlaceholder="/video-placeholder-1.jpg"
+            />
+            <VideoFrame
+              title="Learn Anytime, Anywhere"
+              description="See how students can access personalized tutoring sessions and learn at their own pace."
+              videoPlaceholder="/video-placeholder-2.jpg"
+            />
           </div>
         </div>
-      </section>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Ready to Get Started?</h2>
-          <p className="text-xl mb-8">Join America's fastest-growing tutoring platform.</p>
-          <Link
-            href="/tutor-signup"
-            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-lg hover:opacity-90 transition"
-          >
-            Apply Now
-          </Link>
+        {/* Call to Action */}
+        <div className="text-center">
+          <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-transform duration-300 shadow-lg">
+            Get Started Now
+          </button>
         </div>
-      </section>
-    </div>
+      </div>
+    </main>
   );
 }
 
