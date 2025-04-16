@@ -47,15 +47,23 @@ const tutors = [
   }
 ];
 
-// Add arrow component at the top
 const GradientArrow = () => (
-  <div className="flex justify-center my-4">
-    <div className="w-8 h-12 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 transform rotate-45">
-        <div className="w-full h-full flex items-center justify-center text-3xl text-white">
-          ↓
-        </div>
-      </div>
+  <div className="flex justify-center my-8">
+    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-200">
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        className="h-8 w-8 text-white" 
+        fill="none" 
+        viewBox="0 0 24 24" 
+        stroke="currentColor"
+      >
+        <path 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth={2} 
+          d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+        />
+      </svg>
     </div>
   </div>
 );
@@ -182,7 +190,7 @@ export default function TutorsPage() {
                   <p className="text-gray-300">We'll be in touch with you soon.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium mb-2">First Name</label>
