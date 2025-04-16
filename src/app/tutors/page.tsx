@@ -1,129 +1,216 @@
+'use client';
+
+import React, { useState } from 'react';
+
 export default function TutorsPage() {
+  const [showRequestForm, setShowRequestForm] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const formObject = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'tutor_request',
+          recipientEmail: 'jo@heallyhub.com',
+          ...formObject
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+        setTimeout(() => {
+          setShowRequestForm(false);
+          setSubmitSuccess(false);
+        }, 3000);
+      } else {
+        throw new Error('Failed to submit');
+      }
+    } catch (error) {
+      alert('Failed to submit form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-8">
-            {/* Filters Sidebar */}
-            <div className="w-full md:w-64 bg-white rounded-lg shadow p-6">
-              <h2 className="text-lg font-semibold mb-4">Filters</h2>
-              
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Subject
-                  </label>
-                  <select className="w-full border border-gray-300 rounded-md p-2">
-                    <option value="">All Subjects</option>
-                    <option value="chemistry">Chemistry</option>
-                    <option value="physics">Physics</option>
+        <h1 className="text-4xl font-bold mb-8 text-center">Find Your Perfect Tutor</h1>
+        
+        <div className="max-w-4xl mx-auto">
+          {!showRequestForm ? (
+            <>
+              <div className="bg-gray-800 p-6 rounded-lg mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <select className="p-3 bg-gray-700 border border-gray-600 rounded-lg text-white">
+                    <option value="">Select Subject</option>
                     <option value="math">Mathematics</option>
-                    <option value="biology">Biology</option>
+                    <option value="science">Science</option>
+                    <option value="business">Business</option>
+                    <option value="humanities">Humanities</option>
                   </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    University
-                  </label>
-                  <select className="w-full border border-gray-300 rounded-md p-2">
-                    <option value="">All Universities</option>
-                    <option value="unc">UNC Chapel Hill</option>
-                    <option value="duke">Duke University</option>
-                    <option value="ncsu">NC State University</option>
+                  
+                  <select className="p-3 bg-gray-700 border border-gray-600 rounded-lg text-white">
+                    <option value="">Select University</option>
+                    <option value="harvard">Harvard University</option>
+                    <option value="stanford">Stanford University</option>
+                    <option value="mit">MIT</option>
+                    <option value="berkeley">UC Berkeley</option>
                   </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Rating
-                  </label>
-                  <select className="w-full border border-gray-300 rounded-md p-2">
-                    <option value="">Any Rating</option>
-                    <option value="4">4+ Stars</option>
-                    <option value="3">3+ Stars</option>
-                    <option value="2">2+ Stars</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Price Range
-                  </label>
-                  <div className="flex gap-2">
-                    <input
-                      type="number"
-                      placeholder="Min"
-                      className="w-1/2 border border-gray-300 rounded-md p-2"
-                    />
-                    <input
-                      type="number"
-                      placeholder="Max"
-                      className="w-1/2 border border-gray-300 rounded-md p-2"
-                    />
-                  </div>
+                  
+                  <button 
+                    onClick={() => setShowRequestForm(true)}
+                    className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg hover:opacity-90 transition"
+                  >
+                    Request a Tutor
+                  </button>
                 </div>
               </div>
-            </div>
-
-            {/* Tutors Grid */}
-            <div className="flex-1">
-              <div className="flex justify-between items-center mb-6">
-                <h1 className="text-2xl font-bold">Available Tutors</h1>
-                <select className="border border-gray-300 rounded-md p-2">
-                  <option value="recommended">Recommended</option>
-                  <option value="rating">Highest Rated</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                </select>
-              </div>
-
+              
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Sample Tutor Cards */}
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="bg-white rounded-lg shadow overflow-hidden">
-                    <div className="aspect-w-16 aspect-h-9 bg-gray-200">
-                      {/* Tutor video preview or image */}
-                    </div>
-                    <div className="p-4">
-                      <div className="flex justify-between items-start mb-2">
+                {[1, 2, 3, 4, 5, 6].map((tutor) => (
+                  <div key={tutor} className="bg-gray-800 rounded-lg overflow-hidden">
+                    <div className="p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 bg-gray-700 rounded-full mr-4"></div>
                         <div>
-                          <h3 className="font-semibold">Sample Tutor {i}</h3>
-                          <p className="text-sm text-gray-600">Chemistry, Physics</p>
-                        </div>
-                        <div className="flex items-center">
-                          <span className="text-yellow-400">★</span>
-                          <span className="ml-1 text-sm">4.8</span>
+                          <h3 className="font-bold">Tutor Name</h3>
+                          <p className="text-gray-400">University Name</p>
                         </div>
                       </div>
-                      <p className="text-sm text-gray-600 mb-4">
-                        UNC Chapel Hill
-                      </p>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">$30/hour</span>
-                        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700">
-                          View Profile
-                        </button>
+                      <div className="space-y-2">
+                        <p className="text-gray-300">Subjects: Mathematics, Physics</p>
+                        <p className="text-gray-300">Rating: ⭐⭐⭐⭐⭐ (4.9)</p>
+                        <p className="text-gray-300">Students Helped: 500+</p>
                       </div>
+                      <button 
+                        onClick={() => setShowRequestForm(true)}
+                        className="mt-4 w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition"
+                      >
+                        Request This Tutor
+                      </button>
                     </div>
                   </div>
                 ))}
               </div>
-
-              {/* Pagination */}
-              <div className="mt-8 flex justify-center">
-                <nav className="flex items-center gap-2">
-                  <button className="px-3 py-1 border rounded-md">Previous</button>
-                  <button className="px-3 py-1 bg-blue-600 text-white rounded-md">1</button>
-                  <button className="px-3 py-1 border rounded-md">2</button>
-                  <button className="px-3 py-1 border rounded-md">3</button>
-                  <button className="px-3 py-1 border rounded-md">Next</button>
-                </nav>
+            </>
+          ) : (
+            <div className="bg-gray-800 p-8 rounded-lg">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold">Request a Tutor</h2>
+                <button 
+                  onClick={() => setShowRequestForm(false)}
+                  className="text-gray-400 hover:text-white"
+                >
+                  ← Back to Search
+                </button>
               </div>
+
+              {submitSuccess ? (
+                <div className="text-center py-8">
+                  <div className="text-green-500 text-4xl mb-4">✓</div>
+                  <h3 className="text-xl font-bold mb-2">Request Submitted!</h3>
+                  <p className="text-gray-300">We'll be in touch with you soon.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">First Name</label>
+                      <input 
+                        name="firstName"
+                        type="text" 
+                        className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                        required 
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Last Name</label>
+                      <input 
+                        name="lastName"
+                        type="text" 
+                        className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                        required 
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">University Email</label>
+                    <input 
+                      name="email"
+                      type="email" 
+                      className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                      placeholder="your.email@university.edu"
+                      required 
+                    />
+                    <p className="mt-1 text-sm text-gray-400">Please use your university email address</p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Subject</label>
+                    <select 
+                      name="subject"
+                      className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white" 
+                      required
+                    >
+                      <option value="">Select a Subject</option>
+                      <option value="calculus">Calculus</option>
+                      <option value="physics">Physics</option>
+                      <option value="chemistry">Chemistry</option>
+                      <option value="biology">Biology</option>
+                      <option value="computer_science">Computer Science</option>
+                      <option value="economics">Economics</option>
+                      <option value="statistics">Statistics</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Specific Topic/Concept</label>
+                    <input 
+                      name="topic"
+                      type="text" 
+                      className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                      placeholder="e.g., Derivatives, Thermodynamics, etc."
+                      required 
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Additional Details</label>
+                    <textarea 
+                      name="details"
+                      className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white h-32"
+                      placeholder="Describe what you need help with and any specific requirements..."
+                    />
+                  </div>
+
+                  <button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg transition ${
+                      isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
+                    }`}
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                  </button>
+                </form>
+              )}
             </div>
-          </div>
+          )}
         </div>
       </div>
-    </main>
+    </div>
   );
 } 
