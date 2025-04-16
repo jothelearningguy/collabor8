@@ -47,6 +47,19 @@ const tutors = [
   }
 ];
 
+// Add arrow component at the top
+const GradientArrow = () => (
+  <div className="flex justify-center my-4">
+    <div className="w-8 h-12 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 transform rotate-45">
+        <div className="w-full h-full flex items-center justify-center text-3xl text-white">
+          ↓
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 export default function TutorsPage() {
   const [showRequestForm, setShowRequestForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -191,6 +204,8 @@ export default function TutorsPage() {
                     </div>
                   </div>
 
+                  <GradientArrow />
+
                   <div>
                     <label className="block text-sm font-medium mb-2">University Email</label>
                     <input 
@@ -202,6 +217,8 @@ export default function TutorsPage() {
                     />
                     <p className="mt-1 text-sm text-gray-400">Please use your university email address</p>
                   </div>
+
+                  <GradientArrow />
 
                   <div>
                     <label className="block text-sm font-medium mb-2">Subject</label>
@@ -221,6 +238,8 @@ export default function TutorsPage() {
                     </select>
                   </div>
 
+                  <GradientArrow />
+
                   <div>
                     <label className="block text-sm font-medium mb-2">Specific Topic/Concept</label>
                     <input 
@@ -232,6 +251,8 @@ export default function TutorsPage() {
                     />
                   </div>
 
+                  <GradientArrow />
+
                   <div>
                     <label className="block text-sm font-medium mb-2">Additional Details</label>
                     <textarea 
@@ -240,6 +261,8 @@ export default function TutorsPage() {
                       placeholder="Describe what you need help with and any specific requirements..."
                     />
                   </div>
+
+                  <GradientArrow />
 
                   <button 
                     type="submit"
