@@ -24,30 +24,36 @@ body {
 
 /* Typewriter Animation */
 .typing-container {
-  animation: typing-cycle 16s infinite;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: typing-cycle 24s steps(1) infinite;
 }
 
 .typing-text {
+  position: relative;
+  width: 100%;
   opacity: 0;
+  height: 8rem;
+  padding: 1rem 0;
   transform: translateY(20px);
-  animation: text-appear 4s infinite;
+  transition: all 0.5s ease-in-out;
 }
 
-.typing-text:nth-child(1) { animation-delay: 0s; }
-.typing-text:nth-child(2) { animation-delay: 4s; }
-.typing-text:nth-child(3) { animation-delay: 8s; }
-.typing-text:nth-child(4) { animation-delay: 12s; }
+.typing-text:nth-child(1) { animation: text-appear 24s infinite; animation-delay: 0s; }
+.typing-text:nth-child(2) { animation: text-appear 24s infinite; animation-delay: 4s; }
+.typing-text:nth-child(3) { animation: text-appear 24s infinite; animation-delay: 8s; }
+.typing-text:nth-child(4) { animation: text-appear 24s infinite; animation-delay: 12s; }
+.typing-text:nth-child(5) { animation: text-appear 24s infinite; animation-delay: 16s; }
+.typing-text:nth-child(6) { animation: text-appear 24s infinite; animation-delay: 20s; }
 
 @keyframes typing-cycle {
   0%, 100% { transform: translateY(0); }
-  25% { transform: translateY(-100%); }
-  50% { transform: translateY(-200%); }
-  75% { transform: translateY(-300%); }
 }
 
 @keyframes text-appear {
-  0%, 100% { opacity: 0; transform: translateY(20px); }
-  5%, 95% { opacity: 1; transform: translateY(0); }
+  0%, 83.33%, 100% { opacity: 0; transform: translateY(20px); }
+  4.17%, 79.16% { opacity: 1; transform: translateY(0); }
 }
 
 /* Gradient Text Animation */

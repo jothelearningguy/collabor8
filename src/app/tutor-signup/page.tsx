@@ -49,12 +49,32 @@ export default function TutorSignup() {
 
           {/* Typewriter Animation Section */}
           <div className="bg-gray-800 p-8 rounded-lg mb-8">
-            <div className="text-2xl mb-8 h-20 overflow-hidden">
-              <div className="typing-container animate-typing">
-                <span className="typing-text block mb-4">"Made $2,400 last month from videos I recorded once..." 💰</span>
-                <span className="typing-text block mb-4">"Students love my calculus explanations - 5,000+ views!" 📚</span>
-                <span className="typing-text block mb-4">"Finally helping students while I sleep..." 💫</span>
-                <span className="typing-text block">"Best platform for sharing my knowledge..." ⭐</span>
+            <div className="relative h-32 overflow-hidden">
+              <div className="typing-container">
+                <div className="typing-text">
+                  <p className="text-2xl">"Made $2,400 last month from videos I recorded once..."</p>
+                  <p className="text-base text-gray-400 mt-2">- Sarah K, Chemistry @ Stanford</p>
+                </div>
+                <div className="typing-text">
+                  <p className="text-2xl">"Students love my calculus explanations - 5,000+ views!"</p>
+                  <p className="text-base text-gray-400 mt-2">- Michael P., Mathematics @ MIT</p>
+                </div>
+                <div className="typing-text">
+                  <p className="text-2xl">"Finally helping students while I sleep..."</p>
+                  <p className="text-base text-gray-400 mt-2">- James L., Physics @ Harvard</p>
+                </div>
+                <div className="typing-text">
+                  <p className="text-2xl">"Best platform for sharing my knowledge..."</p>
+                  <p className="text-base text-gray-400 mt-2">- Emily R., Biology @ Berkeley</p>
+                </div>
+                <div className="typing-text">
+                  <p className="text-2xl">"My passive income covers my rent now!"</p>
+                  <p className="text-base text-gray-400 mt-2">- David W., Computer Science @ Georgia Tech</p>
+                </div>
+                <div className="typing-text">
+                  <p className="text-2xl">"Love helping students across the country..."</p>
+                  <p className="text-base text-gray-400 mt-2">- Maria G., Economics @ Princeton</p>
+                </div>
               </div>
             </div>
           </div>
