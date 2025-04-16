@@ -50,20 +50,31 @@ export default function TutorSignup() {
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto relative">
           {/* Left Scroll Button */}
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
+          <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-50">
             <button
               onClick={scrollToForm}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg transform -rotate-90 hover:opacity-90 transition-all duration-300 shadow-lg"
+              className="bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 text-white px-6 py-20 rounded-r-full transform hover:scale-105 transition-all duration-300 shadow-lg font-medium text-lg"
+              style={{
+                writingMode: 'vertical-rl',
+                textOrientation: 'mixed',
+                transform: 'rotate(180deg)',
+                clipPath: 'polygon(0 15%, 100% 0, 100% 100%, 0 85%)'
+              }}
             >
               Scroll to Apply
             </button>
           </div>
 
           {/* Right Scroll Button */}
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
+          <div className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50">
             <button
               onClick={scrollToForm}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg transform rotate-90 hover:opacity-90 transition-all duration-300 shadow-lg"
+              className="bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 text-white px-6 py-20 rounded-l-full transform hover:scale-105 transition-all duration-300 shadow-lg font-medium text-lg"
+              style={{
+                writingMode: 'vertical-rl',
+                textOrientation: 'mixed',
+                clipPath: 'polygon(0 0, 100% 15%, 100% 85%, 0 100%)'
+              }}
             >
               Scroll to Apply
             </button>
