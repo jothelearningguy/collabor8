@@ -34,17 +34,17 @@ export default function Home() {
       <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-            See How It Works
+            The Future of Tutoring
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <VideoFrame
-              title="Create Engaging Content"
-              description="Watch how our tutors create high-quality educational content using our state-of-the-art video platform."
+              title="Traditional Tutoring"
+              description="One-time sessions, limited availability, and high costs. The old way of tutoring leaves students waiting and paying more for less."
               videoPlaceholder="/video-placeholder-1.jpg"
             />
             <VideoFrame
-              title="Learn Anytime, Anywhere"
-              description="See how students can access personalized tutoring sessions and learn at their own pace."
+              title="tutr by HEALLY"
+              description="AI-powered platform, 24/7 access to top tutors' content, and affordable pricing. Learn at your own pace with our revolutionary approach."
               videoPlaceholder="/video-placeholder-2.jpg"
             />
           </div>
