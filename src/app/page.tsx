@@ -40,12 +40,12 @@ export default function Home() {
             <VideoFrame
               title="Traditional Tutoring"
               description="One-time sessions, limited availability, and high costs. The old way of tutoring leaves students waiting and paying more for less."
-              videoPlaceholder="/video-placeholder-1.jpg"
+              videoUrl="https://youtu.be/jeL11aO8Ni0"
             />
             <VideoFrame
               title="tutr by HEALLY"
               description="AI-powered platform, 24/7 access to top tutors' content, and affordable pricing. Learn at your own pace with our revolutionary approach."
-              videoPlaceholder="/video-placeholder-2.jpg"
+              videoUrl="https://youtu.be/Ww6QGoj-RUk"
             />
           </div>
         </div>
